@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjb_villager.mapper.XjbUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.xjb_villager.model.entity.XjbUserEntity" >
+        <result column="id" property="id" />
+        <result column="user_name" property="userName" />
+        <result column="sex" property="sex" />
+        <result column="birthday" property="birthday" />
+        <result column="phone" property="phone" />
+        <result column="card" property="card" />
+        <result column="education" property="education" />
+        <result column="address" property="address" />
+        <result column="family_number" property="familyNumber" />
+        <result column="organize" property="organize" />
+        <result column="imag_url" property="imagUrl" />
+        <result column="immigrant_id" property="immigrantId" />
+        <result column="death" property="death" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="permanent_personnel" property="permanentPersonnel" />
+        <result column="founder" property="founder" />
+        <result column="home_num_pid" property="homeNumPid" />
+        <result column="home_num_subid" property="homeNumSubid" />
+        <result column="death_time" property="deathTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                user_name,
+                sex,
+                birthday,
+                phone,
+                card,
+                education,
+                address,
+                family_number,
+                organize,
+                imag_url,
+                immigrant_id,
+                death,
+                create_time,
+                update_time,
+                permanent_personnel,
+                founder,
+                home_num_pid,
+                home_num_subid,
+                death_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.xjb_villager.model.entity.XjbUserEntity">
+        INSERT INTO xjb_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != userName'>
+                user_name,
+            </if>
+            <if test ='null != sex'>
+                sex,
+            </if>
+            <if test ='null != birthday'>
+                birthday,
+            </if>
+            <if test ='null != phone'>
+                phone,
+            </if>
+            <if test ='null != card'>
+                card,
+            </if>
+            <if test ='null != education'>
+                education,
+            </if>
+            <if test ='null != address'>
+                address,
+            </if>
+            <if test ='null != familyNumber'>
+                family_number,
+            </if>
+            <if test ='null != organize'>
+                organize,
+            </if>
+            <if test ='null != imagUrl'>
+                imag_url,
+            </if>
+            <if test ='null != immigrantId'>
+                immigrant_id,
+            </if>
+            <if test ='null != death'>
+                death,
+            </if>
+            <if test ='null != createTime'>
+                create_time,
+            </if>
+            <if test ='null != updateTime'>
+                update_time,
+            </if>
+            <if test ='null != permanentPersonnel'>
+                permanent_personnel,
+            </if>
+            <if test ='null != founder'>
+                founder,
+            </if>
+            <if test ='null != homeNumPid'>
+                home_num_pid,
+            </if>
+            <if test ='null != homeNumSubid'>
+                home_num_subid,
+            </if>
+            <if test ='null != deathTime'>
+                death_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != userName'>
+                #{userName},
+            </if>
+            <if test ='null != sex'>
+                #{sex},
+            </if>
+            <if test ='null != birthday'>
+                #{birthday},
+            </if>
+            <if test ='null != phone'>
+                #{phone},
+            </if>
+            <if test ='null != card'>
+                #{card},
+            </if>
+            <if test ='null != education'>
+                #{education},
+            </if>
+            <if test ='null != address'>
+                #{address},
+            </if>
+            <if test ='null != familyNumber'>
+                #{familyNumber},
+            </if>
+            <if test ='null != organize'>
+                #{organize},
+            </if>
+            <if test ='null != imagUrl'>
+                #{imagUrl},
+            </if>
+            <if test ='null != immigrantId'>
+                #{immigrantId},
+            </if>
+            <if test ='null != death'>
+                #{death},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime},
+            </if>
+            <if test ='null != updateTime'>
+                #{updateTime},
+            </if>
+            <if test ='null != permanentPersonnel'>
+                #{permanentPersonnel},
+            </if>
+            <if test ='null != founder'>
+                #{founder},
+            </if>
+            <if test ='null != homeNumPid'>
+                #{homeNumPid},
+            </if>
+            <if test ='null != homeNumSubid'>
+                #{homeNumSubid},
+            </if>
+            <if test ='null != deathTime'>
+                #{deathTime}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM xjb_user
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.xjb_villager.model.entity.XjbUserEntity">
+        UPDATE xjb_user
+        <set>
+            <if test ='null != userName'>user_name = #{userName},</if>
+            <if test ='null != sex'>sex = #{sex},</if>
+            <if test ='null != birthday'>birthday = #{birthday},</if>
+            <if test ='null != phone'>phone = #{phone},</if>
+            <if test ='null != card'>card = #{card},</if>
+            <if test ='null != education'>education = #{education},</if>
+            <if test ='null != address'>address = #{address},</if>
+            <if test ='null != familyNumber'>family_number = #{familyNumber},</if>
+            <if test ='null != organize'>organize = #{organize},</if>
+            <if test ='null != imagUrl'>imag_url = #{imagUrl},</if>
+            <if test ='null != immigrantId'>immigrant_id = #{immigrantId},</if>
+            <if test ='null != death'>death = #{death},</if>
+            <if test ='null != createTime'>create_time = #{createTime},</if>
+            <if test ='null != updateTime'>update_time = #{updateTime},</if>
+            <if test ='null != permanentPersonnel'>permanent_personnel = #{permanentPersonnel},</if>
+            <if test ='null != founder'>founder = #{founder},</if>
+            <if test ='null != homeNumPid'>home_num_pid = #{homeNumPid},</if>
+            <if test ='null != homeNumSubid'>home_num_subid = #{homeNumSubid},</if>
+            <if test ='null != deathTime'>death_time = #{deathTime}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="load" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM xjb_user
+        WHERE id = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM xjb_user
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM xjb_user
+    </select>
+
+    <select id="findUserList" resultType="com.xjb_villager.model.entity.XjbUserEntity">
+        SELECT <include refid="Base_Column_List" />
+        FROM xjb_user
+
+    </select>
+
+
+</mapper>

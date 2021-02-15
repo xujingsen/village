@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/xjb_village_OA_system?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: root
