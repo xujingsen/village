@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 import com.xjb_villager.lifei.common.ResultGenerator;
 import com.xjb_villager.lifei.common.ResultLV;
 import com.xjb_villager.lifei.config.exception.ServiceException;
+import com.xjb_villager.lifei.config.redis.RedisUtil;
 import com.xjb_villager.lifei.enums.ResultCode;
 import com.xjb_villager.lifei.util.HttpClientUtil;
 import com.xjb_villager.model.entity.XjbUserEntity;
@@ -15,6 +16,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +33,23 @@ public class XjbUserController {
 
     @Autowired
     private XjbUserService xjbUserService;
+
+    @Autowired
+    RedisTemplate redisTemplate;
+    @Autowired
+    RedisUtil redisUtil;
+
+
+    @ApiOperation(value = "测试接口;参数可以没有")
+    @RequestMapping("/add")
+    public void testInsert() {
+        Map map = new HashMap<>();
+        map.put("ll", 222);
+        map.put("lf", 333);
+        map.put("lt", 444);
+        redisUtil.set("xu", map);
+    }
+
     @ApiOperation(value = "测试接口;参数可以没有")
     @RequestMapping("/getUserInfo")
     public ResultLV get(int a) {

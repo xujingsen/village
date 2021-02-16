@@ -5,7 +5,11 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
 import java.util.Date;
 
 
@@ -15,6 +19,7 @@ import java.util.Date;
  */
 @ApiModel(value = "用户表")
 @Data
+@AllArgsConstructor
 public class XjbUserEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -5,6 +5,15 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-idle: 8
+        max-active: 8
+        max-wait: -1
+        min-idle: 0
 ########################## Druid连接池的配置信息  #################
 spring.druid.initialSize: 5                                 #初始化连接大小
 spring.druid.minIdle: 5                                     #最小连接池数量
