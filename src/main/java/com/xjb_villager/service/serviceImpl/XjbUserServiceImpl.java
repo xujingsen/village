@@ -5,6 +5,7 @@ import com.xjb_villager.mapper.XjbUserMapper;
 import com.xjb_villager.model.entity.XjbUserEntity;
 import com.xjb_villager.service.XjbUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -44,4 +45,24 @@ public class XjbUserServiceImpl implements XjbUserService {
     public List<XjbUserEntity> findUserList() {
         return xjbUserMapper.findUserList();
     }
+
+    @Override
+    public String getSyncHello() throws InterruptedException {
+        System.out.println("线程名"+Thread.currentThread().getName());
+        System.out.println("线程开始休眠");
+        Thread.sleep(3000);
+        System.out.println("同步休眠结束");
+        return "这是同步方法";
+    }
+
+    @Override
+    @Async
+    public String getAyncHello() throws InterruptedException {
+        System.out.println("线程名"+Thread.currentThread().getName());
+        System.out.println("开始异步休眠");
+        Thread.sleep(3000);
+        return "这是异步方法";
+    }
+
+
 }

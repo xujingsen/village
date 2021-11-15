@@ -6,10 +6,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -482,6 +480,7 @@ public class RedisUtil {
         //绑定操作
         BoundListOperations<String, Object> boundValueOperations = redisTemplate.boundListOps(listKey);
         //查询数据
+        System.out.println("fd;gjdsgjdlskgj'lsd");
         return boundValueOperations.range(start, end);
     }
     /**
@@ -496,6 +495,43 @@ public class RedisUtil {
 
     //=========BoundListOperations 用法 End============
 
+    public static void main(String[] args) throws IOException {
 
+
+        File file = new File("F:\\xu\\","lf.txt");
+        System.out.println(file.getPath());
+        if(!file.exists()){
+            //file.mkdirs();
+            file.createNewFile();
+
+        }
+
+
+
+      //  String a = "hfdh;gasd";
+
+      /*  FileOutputStream fileOutputStream = new FileOutputStream(file.getPath());
+        fileOutputStream.write(a.getBytes());
+        fileOutputStream.close();*/
+        FileInputStream fileInputStream = new FileInputStream(file.getPath());
+    /*     byte[] b = new byte[1024];
+        int n = fileInputStream.read(b);
+       while(n != -1){
+
+            n = fileInputStream.read();
+            System.out.println(n);
+        }*/
+
+
+        int by;
+        while ((by = fileInputStream.read()) != -1) {
+            System.out.print((char) by);
+        }
+        fileInputStream.close();
+
+
+
+
+    }
 
 }

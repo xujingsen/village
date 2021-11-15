@@ -27,4 +27,8 @@ public interface XjbUserService {
 
     List<XjbUserEntity> findUserList();
 
+    String getSyncHello() throws InterruptedException;
+
+    String getAyncHello() throws InterruptedException;
+
 }

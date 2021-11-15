@@ -226,5 +226,27 @@
 
     </select>
 
+    <select id="selectCountManAndWomen" resultType="com.xjb_villager.model.vo.DataInfoVO">
+       SELECT count(id) as numPeople,sex FROM xjb_user  GROUP BY sex
+    </select>
 
+    <select id="selectCountsixtyFiveManAndWomen" resultType="com.xjb_villager.model.vo.DataInfoVO">
+      SELECT
+	    count( id ) as numPeople,
+	    sex
+      FROM
+	    xjb_user
+      WHERE
+	        DATE_FORMAT( FROM_DAYS( TO_DAYS( NOW( ) ) - TO_DAYS( birthday ) ), '%Y' ) > 50
+      GROUP BY sex
+    </select>
+
+    <select id="selectCountsixtyFivePeople" resultType="java.lang.Integer">
+        SELECT
+          count( id ) as numPeople
+        FROM
+            xjb_user
+        WHERE
+         DATE_FORMAT( FROM_DAYS( TO_DAYS( NOW( ) ) - TO_DAYS( birthday ) ), '%Y' ) > 50
+    </select>
 </mapper>

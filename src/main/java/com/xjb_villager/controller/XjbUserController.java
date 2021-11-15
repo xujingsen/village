@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,7 +102,7 @@ public class XjbUserController {
         Object parse = JSON.parse(s);
 
         return ResultGenerator.genSuccessResult(parse);
-    }
+    }   
 
     /**
      * [查询] 分页查询
@@ -128,6 +129,21 @@ public class XjbUserController {
         System.out.println(pageInfoList.getEndRow());
         System.out.println(pageInfoList.isHasNextPage());
         return ResultGenerator.genSuccessResult(pageInfoList);
+    }
+
+    @RequestMapping("/sync")
+    public String getSyncHello() throws InterruptedException {
+        long n = Instant.now().toEpochMilli();
+        String s = xjbUserService.getSyncHello();
+        long l = Instant.now().toEpochMilli();
+        return  s +"时间"+ (l-n);
+    }
+    @RequestMapping("/aync")
+    public String getAyncHello() throws InterruptedException {
+        long n = Instant.now().toEpochMilli();
+        String s = xjbUserService.getAyncHello();
+        long l = Instant.now().toEpochMilli();
+        return  s +"时间"+ (l-n);
     }
 
 

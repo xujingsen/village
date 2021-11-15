@@ -1,6 +1,7 @@
 package com.xjb_villager.mapper;
 
 import com.xjb_villager.model.entity.XjbUserEntity;
+import com.xjb_villager.model.vo.DataInfoVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -57,5 +58,14 @@ public interface XjbUserMapper {
     int pageListCount(int offset,int pagesize);
 
     List<XjbUserEntity> findUserList();
+
+    int pageListCount();
+
+    List<DataInfoVO>  selectCountManAndWomen();
+
+    List<DataInfoVO>  selectCountsixtyFiveManAndWomen();
+
+    int selectCountsixtyFivePeople();
+
 
 }
